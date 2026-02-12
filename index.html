@@ -9,6 +9,7 @@
   </head>
   <body>
     <div class="scene" aria-hidden="true">
+      <img id="bgPhoto" class="bg-photo" alt="" />
       <div class="line-layer" id="lineLayer"></div>
       <div class="glow glow-a"></div>
       <div class="glow glow-b"></div>
@@ -17,7 +18,19 @@
     <script>
       (function () {
         const layer = document.getElementById("lineLayer");
+        const photo = document.getElementById("bgPhoto");
         if (!layer) return;
+
+        // Random photo every load
+        if (photo) {
+          const seeds = [
+            "mountain", "ocean", "citylights", "forest", "desert", "sunset",
+            "space", "nightsky", "waterfall", "architecture", "nature", "abstract"
+          ];
+          const pick = seeds[Math.floor(Math.random() * seeds.length)];
+          const nonce = Math.floor(Math.random() * 1000000);
+          photo.src = `https://picsum.photos/seed/${pick}-${nonce}/2400/1400`;
+        }
 
         const count = 28;
         const rand = (min, max) => Math.random() * (max - min) + min;
