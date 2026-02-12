@@ -9,23 +9,32 @@
   </head>
   <body>
     <div class="scene" aria-hidden="true">
-      <div class="line-grid">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </div>
+      <div class="line-layer" id="lineLayer"></div>
       <div class="glow glow-a"></div>
       <div class="glow glow-b"></div>
       <div class="glow glow-c"></div>
     </div>
+    <script>
+      (function () {
+        const layer = document.getElementById("lineLayer");
+        if (!layer) return;
+
+        const count = 28;
+        const rand = (min, max) => Math.random() * (max - min) + min;
+
+        for (let i = 0; i < count; i += 1) {
+          const line = document.createElement("span");
+          line.className = "line";
+          line.style.setProperty("--top", `${rand(-8, 108)}%`);
+          line.style.setProperty("--thickness", `${rand(1, 4)}px`);
+          line.style.setProperty("--hue", `${rand(0, 360)}deg`);
+          line.style.setProperty("--alpha", `${rand(0.45, 0.95)}`);
+          line.style.setProperty("--dur", `${rand(4.8, 11.5)}s`);
+          line.style.setProperty("--delay", `${rand(-8, 0)}s`);
+          line.style.setProperty("--shift", `${rand(8, 24)}vw`);
+          layer.appendChild(line);
+        }
+      })();
+    </script>
   </body>
 </html>
