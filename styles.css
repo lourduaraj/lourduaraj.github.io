@@ -101,51 +101,6 @@ body {
   animation-duration: 16s;
 }
 
-.datetime-wrap {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  pointer-events: none;
-  padding: 0 1rem;
-}
-
-.clock-time {
-  font-size: clamp(2.4rem, 10vw, 6.8rem);
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  line-height: 1;
-  color: transparent;
-  background: linear-gradient(
-    90deg,
-    #73f1ff 0%,
-    #78a6ff 28%,
-    #b388ff 52%,
-    #ff7dd4 76%,
-    #73f1ff 100%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  text-shadow:
-    0 0 18px rgba(115, 241, 255, 0.42),
-    0 0 36px rgba(179, 136, 255, 0.35),
-    0 0 54px rgba(255, 125, 212, 0.3);
-  animation: shimmer 8s linear infinite;
-}
-
-.clock-date {
-  margin-top: 0.85rem;
-  font-size: clamp(0.95rem, 2.8vw, 1.55rem);
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: rgba(232, 242, 255, 0.95);
-  text-shadow: 0 0 18px rgba(114, 170, 255, 0.42);
-}
-
 @keyframes slide {
   0% {
     transform: translateX(calc(-1 * var(--shift, 14vw)));
@@ -185,14 +140,5 @@ body {
   }
   to {
     transform: scale(1.12) translateX(1.5%);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 220% 50%;
   }
 }
