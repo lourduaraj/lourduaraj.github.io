@@ -14,11 +14,17 @@
       <div class="glow glow-a"></div>
       <div class="glow glow-b"></div>
       <div class="glow glow-c"></div>
+      <div class="datetime-wrap" aria-live="polite">
+        <div id="clockTime" class="clock-time">00:00:00</div>
+        <div id="clockDate" class="clock-date">Thursday, Jan 1, 1970</div>
+      </div>
     </div>
     <script>
       (function () {
         const layer = document.getElementById("lineLayer");
         const photo = document.getElementById("bgPhoto");
+        const clockTime = document.getElementById("clockTime");
+        const clockDate = document.getElementById("clockDate");
         if (!layer) return;
 
         // Random photo every load
@@ -47,6 +53,29 @@
           line.style.setProperty("--shift", `${rand(8, 24)}vw`);
           layer.appendChild(line);
         }
+
+        // Live date and time
+        const updateDateTime = () => {
+          const now = new Date();
+          if (clockTime) {
+            clockTime.textContent = now.toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+              hour12: true
+            });
+          }
+          if (clockDate) {
+            clockDate.textContent = now.toLocaleDateString([], {
+              weekday: "long",
+              year: "numeric",
+              month: "short",
+              day: "2-digit"
+            });
+          }
+        };
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
       })();
     </script>
   </body>
