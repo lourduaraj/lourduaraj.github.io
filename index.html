@@ -3,16 +3,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lourdu Araj</title>
+    <meta name="description" content="Lourdu A Raj - engineer focused on operations, reliability, and automation." />
+    <title>Lourdu A Raj</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="wrap">
-      <h1>Lourdu Araj</h1>
-      <p>Engineer focused on reliability, automation, and operations.</p>
-      <p>
-        <a href="https://github.com/lourduaraj" target="_blank" rel="noreferrer">GitHub</a>
-      </p>
+    <header class="hero">
+      <div class="overlay"></div>
+      <div class="content">
+        <p class="intro">Hello, I'm</p>
+        <h1>Lourdu A Raj</h1>
+        <p class="tagline">Engineer focused on operations, reliability, and automation.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/lourduaraj" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="#about">About Me</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <section id="about" class="card">
+        <h2>About</h2>
+        <p>
+          I enjoy building practical systems that are stable, observable, and easy to operate.
+          My day-to-day work includes infrastructure operations, incident response, and automation to reduce manual effort.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>What I Do</h2>
+        <ul>
+          <li>Site reliability and production operations</li>
+          <li>Infrastructure troubleshooting and service health checks</li>
+          <li>Automation with scripts and tools for repeatable workflows</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Links</h2>
+        <p>
+          <a href="https://github.com/lourduaraj" target="_blank" rel="noreferrer">GitHub Profile</a>
+        </p>
+      </section>
     </main>
+
+    <footer>
+      <small>&copy; <span id="year"></span> Lourdu A Raj</small>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
-  </html>
+</html>

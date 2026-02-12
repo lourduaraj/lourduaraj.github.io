@@ -1,20 +1,139 @@
+:root {
+  --bg: #071022;
+  --surface: rgba(13, 25, 48, 0.72);
+  --border: rgba(154, 171, 205, 0.24);
+  --text: #eaf1ff;
+  --muted: #b6c5e7;
+  --accent: #6ea8ff;
+  --accent-2: #8ef7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-}
-
-.wrap {
-  max-width: 760px;
-  margin: 6rem auto;
-  padding: 0 1rem;
-}
-
-h1 {
-  margin-bottom: 0.5rem;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(110, 168, 255, 0.28), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(142, 247, 255, 0.20), transparent 33%),
+    radial-gradient(circle at 50% 90%, rgba(172, 96, 255, 0.18), transparent 40%),
+    var(--bg);
 }
 
 a {
-  color: #93c5fd;
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  position: relative;
+  min-height: 58vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 3rem 1.2rem;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 10, 24, 0.22), rgba(6, 10, 24, 0.55));
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.intro {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 4rem);
+  line-height: 1.1;
+}
+
+.tagline {
+  margin: 1rem auto 1.4rem;
+  max-width: 700px;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.62rem 1.1rem;
+  color: var(--text);
+  background: rgba(9, 20, 41, 0.4);
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), #9b8dff);
+  border: 0;
+}
+
+.page {
+  width: min(940px, 92%);
+  margin: 0 auto 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  backdrop-filter: blur(6px);
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
+}
+
+.card p,
+.card li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 1.2rem 0 2rem;
 }
